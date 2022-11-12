@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(47, 47, 47);
+  height: 100vh;;
+  font-family: "Roboto Mono", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  top: 9vh;
+  width: 40.05vw;
+  height: 40.05vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container[size=middle] {
+  width: 500px;
+  height: 500px;
+}
+
+.container[size=middle] .field {
+  width: calc(500px / 3);
+  height: calc(500px / 3);
+}
+
+.container[size=middle] .field.oHovered::before, .container[size=small] .field.o::before, .container[size=middle] .field.o::before, .container[size=small] .field.oHovered::before {
+  width: calc(450px / 3 * 0.7);
+  height: calc(450px / 3 * 0.7);
+  border-width: 12px;
+}
+
+.container[size=middle] .field.xHovered::before, .container[size=middle] .field.xHovered::after, .container[size=small] .field.xHovered::before, .container[size=small] .field.xHovered::after, .container[size=middle] .field.x::before, .container[size=middle] .field.x::after, .container[size=small] .field.x::before, .container[size=small] .field.x::after {
+  width: 15px;
+  height: 150px;
+}
+
+.container[size=middle] .field.border-right {
+  border-right: 11px solid white;
+}
+
+.container[size=middle] .field.border-bottom {
+  border-bottom: 11px solid white;
+}
+
+.container[size=small] {
+  top: 5vh;
+  width: 450px;
+  height: 450px;
+}
+
+.container[size=small] .field {
+  width: calc(450px / 3);
+  height: calc(450px / 3);
+}
+
+.container[size=small] .field.border-right {
+  border-right: 9px solid white;
+}
+
+.container[size=small] .field.border-bottom {
+  border-bottom: 9px solid white;
+}
+
+.back-btn {
+  width: 15vw;
+  height: 9.283819628647215vh;
+  background-color: transparent;
+  display: flex;
+  font-family: 'Open Sans';
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(227, 227, 227);
+  font-size: clamp(30px, calc(30px + (60 - 30) * ((100vw - 420px) / (1200 - 420))), 60px);
+  transition: 0.15s ease-in;
+  cursor: pointer;
+  position: absolute;
+  bottom: 2vh;
+  left: min(30px, 5vw);
+}
+
+.back-btn:hover {
+  color: rgb(255, 60, 0);
+}
+
+.field {
+  width: 13.35vw;
+  height: 13.35vw;
+  font-size: 13.377926421404682vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field.o::before {
+  content: "";
+  border: 1.137123745819398vw solid rgb(61, 105, 175);
+  width: 8.7vw;
+  height: 8.7vw;
+  border-radius: 50%;
+}
+
+.field.oHovered {
+  cursor: pointer;
+}
+
+.field.xHovered {
+  cursor: pointer;
+}
+
+.field.oHovered::before {
+  content: "";
+  border: 1.137123745819398vw solid rgb(61, 105, 175);
+  opacity: 0.5;
+  width: 8.7vw;
+  height: 8.7vw;
+  border-radius: 50%;
+}
+
+.field.x::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: 1.3377926421404682vw;
+  height: 12vw;
+  transform: rotate(45deg);
+}
+
+.field.x::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: 1.3377926421404682vw;
+  height: 12vw;
+  transform: rotate(-45deg);
+}
+
+.field.xHovered .opacityer {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(47, 47, 47, 0.6);
+}
+
+.field.xHovered::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: 1.3377926421404682vw;
+  height: 12vw;
+  transform: rotate(45deg);
+}
+
+.field.xHovered::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: 1.3377926421404682vw;
+  height: 12vw;
+  transform: rotate(-45deg);
+}
+
+.xScore {
+  position: absolute;
+  left: 12vw;
+  top: 4vh;
+  display: flex;
+  justify-content: center;
+}
+
+.oScore {
+  position: absolute;
+  right: 9vw;
+  top: 4vh;
+  border: clamp(10px, 0.5vw, 30px) solid rgb(61, 105, 175);
+  border-radius: 50%;
+  width: clamp(100px, 5vw, 100vw);
+  height: clamp(100px, 5vw, 100vw);
+  display: flex;
+  justify-content: center;
+}
+
+.oScoreNum {
+  position: absolute;
+  top: clamp(130px, 7vw, 100vw);
+  color: rgb(75, 75, 75);  
+  font-size: clamp(50px, calc(50px + (90 - 50) * ((100vw - 420px) / (1200 - 420))), 90px);
+  font-family: sans-serif;
+}
+
+.xScoreNum {
+  position: absolute;
+  top: clamp(130px, 7vw, 100vw);
+  color: rgb(75, 75, 75);
+  font-size: clamp(50px, calc(50px + (90 - 50) * ((100vw - 420px) / (1200 - 420))), 90px);
+  font-family: sans-serif;
+}
+
+.xScore::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: clamp(10px, 0.7vw, 100vw);
+  height: clamp(100px, 5.7vw, 100vw);
+  transform: rotate(45deg);
+}
+
+.xScore::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 75, 75);
+  width: clamp(10px, 0.7vw, 100vw);
+  height: clamp(100px, 5.7vw, 100vw);
+  transform: rotate(-45deg);
+}
+
+.field.border-right {
+  border-right: 1vw solid white;
+}
+
+.field.border-bottom {
+  border-bottom: 1vw solid white;
+}
+
+.turn-container {
+  background-color: white;
+  border-radius: 0.5vw;
+  position: absolute;
+  top: 1.5vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  padding: 0.45vw 2vw;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.turn-container .xturn, .turn-container .oturn {
+  letter-spacing: -0.33444816053511706vw;
+  width: 16.5vw;
+  min-height: 100px;
+  min-width: 130px;
+  height: 6vw;
+  background-color: white;
+  transition: background-color 0.7s ease;
+  font-size: clamp(20px, calc(20px + (50 - 20) * ((100vw - 420px) / (1200 - 420))), 50px);
+  font-family: inherit;
+  border-radius: 0.8vw;
+  line-height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.turn-container .oturn {
+  margin-left: 2vw;
+}
+
+.turn-container .oturn.active, .turn-container .xturn.active {
+  color: white;
+  background-color: rgb(35, 136, 231);
+}
+
+.playAgain {
+  padding: 1vw;
+  background-color: rgb(35, 136, 231);
+  font-size: clamp(20px, calc(20px + (45 - 20) * ((100vw - 420px) / (1200 - 420))), 45px);
+  font-family: inherit;
+  color: white;
+  position: relative;
+  border-radius: 0.8vw;
+  line-height: 12vh;
+  border: 0;
+  cursor: pointer;
+}

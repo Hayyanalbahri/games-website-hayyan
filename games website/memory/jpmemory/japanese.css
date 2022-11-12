@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-color: rgb(47, 47, 47);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: calc(4 * 11vw + 1.5 * 8vw);
+  height: calc(4 * 11vw + 1.5 * 8vw - 15vw);
+}
+
+.card {
+  position: relative;
+  width: 11vw;
+  height: 11vw;
+  margin: 1.5vw;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.card.active {
+  cursor: context-menu;
+}
+
+.card.disappear {
+  opacity: 0;
+  cursor: context-menu;
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: perspective(75vw) rotateY(0deg);
+  transition: 0.8s ease-in-out;
+  border-radius: 1.4vw;
+}
+
+.card .front {
+  background-color: #ffc000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .front span {
+  font-size: 8vw;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto';
+}
+
+.card.active .front {
+  transform: perspective(75vw) rotateY(180deg);
+}
+
+.card .back{
+  transform: perspective(75vw) rotateY(180deg);
+  background-color: rgb(36, 36, 36);
+}
+
+.card.active .back {
+  transform: perspective(75vw) rotateY(360deg);
+}
+
+.player-btn {
+  position: absolute;
+  transition: top 2.3s ease;
+  top: -135vh;
+  width: calc(14vw + 50px);
+  height: calc(8vw + 20px);
+  background-color: rgb(233, 55, 55);
+  font-size: 3.5vw;
+  color: rgb(51, 48, 48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.7vw;
+  cursor: pointer;
+}
+
+.player-btn span {
+  letter-spacing: 0.25vw;
+  white-space: nowrap;
+  font-size: 2vw;
+  color: rgb(127, 127, 127);
+  cursor: context-menu;
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%, -50%);
+}
+
+#one-player {
+  left: 54vw;
+}
+
+#two-player {
+  background-color: rgb(46, 46, 219);
+  right: 54vw;
+}
+
+.bar-container {
+  position: absolute;
+  top: 2.5vw;
+  right: 5vw;
+  width: calc(3vw + 10px);
+  height: calc((0.38vw + 3px) * 3 + 1.5vw);
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.bar {
+  border-radius: 1vw;
+  width: calc(3vw + 10px);
+  height: calc(0.38vw + 3px);
+  background-color: rgb(215, 215, 215);
+  position: absolute;
+}
+
+.second-bar {
+  top: calc(1.1vw + 2.5px);
+}
+
+.third-bar {
+  top: calc(2.2vw + 5px);
+}
+
+.bar-container.clicked {
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
+.gameModes-container {
+  display: none;
+  position: absolute;
+  top: 3vw;
+  right: 9vw;
+  padding: 2vw 4vw 1vw;
+  background-color: rgb(101, 101, 101);
+  z-index: 100;
+}
+
+.gameMode {
+  font-size: 2vw;
+  font-family: 'Poppins';
+  margin-bottom: 1vw;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.gameMode:hover {
+  color: rgb(8, 53, 125);
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.score {
+  position: absolute;
+  top: 15vh;
+  font-size: 4vw;
+  font-family: 'Poppins';
+  color: rgb(112, 112, 112);
+  display: none;
+  font-weight: bold;
+  display: none;
+  justify-content: center;
+  transition: 0.75s ease !important;
+}
+
+.score .crown {
+  position: absolute;
+  top: -40%;
+  display: none;
+  color: gold;
+  font-size: 1vw; 
+  transition: font-size 0.35s ease;
+}
+
+.score.winner .crown {
+  position: absolute;
+  top: -70%;
+  display: block;
+  font-size: 7vw;
+}
+
+.score.winner {
+  position: absolute;
+  font-size: 6vw;
+  top: 48vh;
+  transform: translate(-50%, -50%);
+}
+
+.score.winner .score-num {
+  font-size: 8vw;
+}
+
+.score.active-score {
+  font-size: 5vw;
+  color: rgb(182, 182, 182);
+}
+
+#right-score {
+  right: 1.5vw;
+}
+
+#left-score {
+  left: 1.5vw;
+}
+
+.score-num {
+  position: absolute;
+  top: 100%;
+  font-size: 6vw;
+  color: rgb(170, 170, 170);
+}
+
+.play-again {
+  background-color: rgb(168, 168, 168);
+  width: 20vw;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 120vh;
+  font-size: 3vw;
+  font-family: 'Roboto';
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  color: rgb(92, 92, 92);
+  transition: 0.75s ease-out;
+}
+
+.draw {
+  font-family: 'Roboto';
+  font-size: 8vw;
+  color: rgb(93, 93, 93);
+  position: absolute;
+  top: -10vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  transition: 2s ease;
+  font-weight: bold;
+}
+
+.back-btn {
+  width: 15vw;
+  height: 9.283819628647215vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(227, 227, 227);
+  font-size: calc(3vw + 10px);
+  font-family: 'Open Sans';
+  transition: 0.15s ease-in;
+  cursor: pointer;
+  position: absolute;
+  left: 3vw;
+  margin-top: 15vh;
+  display: none;
+}
+
+.back-btn:hover {
+  color: rgb(255, 60, 0);
+}

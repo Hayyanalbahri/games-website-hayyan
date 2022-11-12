@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="circle-wrapper" style="display: none">
+        <div class="circle"></div>
+    </div>
+    <div class="site-wrapper">
+        <div class="time-left"></div>
+        <div class="question-counter">1/10</div>
+        <div class="question"></div>
+        <div class="options-container">
+        </div>
+        <button class="next-question-btn" style="display:none">Next Question</button>
+    </div>
+    <div class="filter-container">
+        <h2>Filter</h2>
+        <div class="select-wrapper">
+            <div class="select">
+                <i class="fa-solid fa-angle-down"></i>
+                <span class="visable-option">difficulty</span>
+                <div class="dropdown">
+                    <div class="select-options active-option" searchValue="default">difficulty</div>
+                    <div class="select-options" searchValue="easy">easy</div>
+                    <div class="select-options" searchValue="medium">medium</div>
+                    <div class="select-options" searchValue="hard">hard</div>
+                </div>
+            </div>
+        </div>
+        <div class="play-now">Play</div>
+    </div>
+    <div class="page-remove"></div>
+    <div class="end-text"></div>
+    <div class="play-again">Play Again</div>
+    <div class="back-btn"><i class="fa-solid fa-arrow-left" style="margin-right: 0.6vw;"></i>Home</div>
+</body>
+<script src="https://kit.fontawesome.com/8367bf7b85.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,600&display=swap');
+
+*{
+    user-select: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Roboto';
+}
+
+*:focus {
+    outline: 0;
+}
+
+.site-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(77, 77, 77);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.options-container {
+    position: absolute;
+    bottom: 18vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+    .options-container {
+        flex-wrap: wrap;
+    }
+}
+
+.option {
+    padding: 1vw 3vw;
+    margin: 2vw 1vw;
+    background-color: rgb(107, 107, 107);
+    font-size: clamp(20px, calc(20px + (50 - 20) * ((100vw - 420px) / (1200 - 420))), 60px);
+    font-family: 'Roboto';
+    color: rgb(183, 183, 183);
+    cursor: pointer;
+    border-radius: 3vw;
+    transition: 0.5s ease;
+    user-select: none;
+}
+
+.option.edit-wrong {
+    background-color: rgb(255, 103, 97);
+    color: rgb(175, 175, 175);
+}
+
+.option.edit-correct {
+    background-color: rgb(81, 236, 120);
+    color: rgb(134, 134, 134);
+}
+
+.question {
+    width: 80vw;
+    text-align: center;
+    color: rgb(140, 140, 140);
+    font-family: 'Roboto';
+    position: absolute;
+    top: 41vh;
+    transform: translateY(-50%);
+    font-size: clamp(40px, calc(40px + (80 - 40) * ((100vw - 420px) / (1200 - 420))), 80px);
+}
+
+.question-counter {
+    color: rgb(101, 101, 101);
+    font-size: clamp(60px, calc(60px + (85 - 60) * ((100vw - 420px) / (1200 - 420))), 85px);
+    font-weight: bold;
+    font-family: 'Roboto';
+    position: absolute;
+    bottom: 75vh;
+    margin-bottom: 2vh;
+}
+
+.next-question-btn {
+    font-family: 'Roboto';    
+    font-size: clamp(30px, calc(30px + (50 - 30) * ((100vw - 420px) / (1200 - 420))), 50px);
+    padding: 1vw 2vw;
+    position: absolute;
+    bottom: 4vh;
+    border-radius: 2vw;
+    background-color: rgb(103, 103, 103);
+    color: rgb(165, 165, 165);
+    border: rgb(91, 91, 91) solid 0.4vw;
+    cursor: pointer;
+}
+
+.time-left {
+    width: 100vw;
+    height: 3vh;
+    background-color: rgb(0, 197, 0);
+    position: absolute;
+    right: 0;
+    border-radius: 5vw;
+}
+
+.time-left.transition {
+    transition: background-color 2.5s ease;
+}
+
+.circle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    height: 10vw;
+    width: 10vw;
+    border: 1.5vw solid rgb(114, 114, 114);
+    border-top-color: rgb(69, 69, 69);
+    animation: rotate 0.8s ease infinite;
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.end-text {    
+    font-size: clamp(40px, calc(40px + (60 - 40) * ((100vw - 420px) / (1200 - 420))), 60px);
+    font-family: 'Roboto';
+    color: rgb(132, 132, 132);
+    position: absolute;
+    top: 50vh;
+    transform: translateY(-50%);
+    transition: top 0.8s ease;
+    font-weight: 600;
+}
+
+.filter-container {
+    text-align: center;
+    padding: 3vw 3vw;
+    background-color: rgb(144, 144, 144);
+    position: absolute;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+.filter-container h2 {    
+    font-size: clamp(30px, calc(30px + (55 - 30) * ((100vw - 420px) / (1200 - 420))), 55px);
+    color: rgb(80, 80, 80);
+}
+
+.select-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    max-height: 60px;
+    margin-top: 3vh;
+}
+
+.fa-angle-down {
+    cursor: pointer;
+    position: absolute;
+    right: 3vw;    
+    font-size: clamp(20px, calc(20px + (45 - 20) * ((100vw - 420px) / (1200 - 420))), 45px);
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+    transform: rotate(0);
+    z-index: 0;
+}
+
+.select-wrapper.drop .fa-angle-down {
+    transform: rotate(-90deg);
+}
+
+.select {
+    cursor: pointer;
+    display: flex;
+    align-items: center !important;
+    font-size: clamp(25px, calc(25px + (53 - 25) * ((100vw - 420px) / (1200 - 420))), 53px);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.6vw;
+    padding: 0.1vw 0.9vw;
+    background-color: rgb(191, 191, 191);
+    position: relative;
+}
+
+.visable-option {
+    position: absolute;
+    left: 0;
+    margin-left: 2vw;
+}
+
+.dropdown {
+    display: none;
+}
+
+.select-wrapper.drop .dropdown {
+    display: inline-block;
+    position: absolute;
+    left: 0vw;
+    top: 0;
+    width: 100%;
+    background-color: rgb(184, 184, 184);
+    z-index: 10;
+    border-radius: 1vw;
+}
+
+.select-wrapper.drop .dropdown .select-options {
+    font-size: clamp(25px, calc(25px + (53 - 25) * ((100vw - 420px) / (1200 - 420))), 53px);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.1vw 2vw;
+    background-color: rgb(191, 191, 191);
+}
+
+.select-wrapper.drop .dropdown .select-options:hover {
+    background-color: rgb(173, 173, 173);
+}
+
+.select-wrapper.drop .dropdown .active-option {
+    background-color: rgb(156, 156, 156);
+}
+
+.select-wrapper.drop .dropdown .active-option:hover {
+    background-color: rgb(156, 156, 156);
+}
+
+.checkbox-wrapper {
+    margin-top: 4vh;
+}
+
+.checkbox-text {
+    display: inline;
+    position: relative;
+    left: 0.9vw;
+}
+
+.checkbox-text, .on-off-btn {
+    font-size: clamp(20px, calc(20px + (45 - 20) * ((100vw - 420px) / (1200 - 420))), 45px);
+}
+
+.on-off-btn {
+    margin-left: 2vw;
+    padding: 2vh 2vw;
+    border-radius: 2vw;
+    background-color: rgb(191, 191, 191);
+    border: 0.3vw solid rgb(109, 109, 109);
+    cursor: pointer;
+}
+
+.page-remove {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+.play-now {
+    position: relative;
+    padding: 3vh 9vw;
+    background-color: rgb(100, 99, 99);
+    font-size: clamp(30px, calc(30px + (55 - 30) * ((100vw - 420px) / (1200 - 420))), 55px);
+    margin-top: 4vh;
+    border-radius: 100vw;
+    cursor: pointer;
+    color: rgb(215, 215, 215);
+}
+
+.play-again {
+    cursor: pointer;
+    background-color: rgb(120, 120, 120);
+    border-radius: 2vw;
+    position: absolute;
+    bottom: -20vh;
+    transition: 0.9s ease;
+    padding: 4vh 20vw;
+    z-index: 10;
+    font-size: clamp(30px, calc(30px + (55 - 30) * ((100vw - 420px) / (1200 - 420))), 55px);
+}
+
+.back-btn {
+    width: 15vw;
+    height: 9.283819628647215vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(227, 227, 227);
+    font-size: calc(3vw + 10px);
+    font-family: 'Open Sans';
+    transition: 0.15s ease-in;
+    cursor: pointer;
+    position: absolute;
+    left: 3vw;
+    margin-top: 15vh;
+    display: none;
+}
+
+.back-btn:hover {
+    color: rgb(255, 60, 0);
+}

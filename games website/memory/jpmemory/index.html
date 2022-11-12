@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Character Memory</title>
+    <link rel="stylesheet" href="japanese.css">
+</head>
+<body>
+    <div class="page"></div>
+    <div class="container"></div>
+    <div class="player-btn" id="one-player"><i class="fa-solid fa-user"><span>1 player</span></i></div>
+    <div class="player-btn" id="two-player"><i class="fa-solid fa-user-group"><span>2 player</span></i></div>
+    <div class="bar-container">
+        <div class="bar first-bar"></div>
+        <div class="bar second-bar"></div>
+        <div class="bar third-bar"></div>
+    </div>
+    <div class="gameModes-container">
+        <div class="gameMode">Math Memory</div>
+        <div class="gameMode">Normal Memory</div>
+        <div class="gameMode">Anime Memory</div>
+    </div>
+    <div class="score active-score" id="right-score"><i class="fa-solid fa-crown crown"></i>Player 1 <div class="score-num" id="right-num">0</div></div>
+    <div class="score" id="left-score"><i class="fa-solid fa-crown crown"></i>Player 2 <div class="score-num" id="left-num">0</div></div>
+    <div class="draw">Draw!</div>
+    <div class="play-again">Play Again</div>
+    <div class="back-btn"><i class="fa-solid fa-arrow-left" style="margin-right: 0.6vw;"></i>Home</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="japanese.js"></script>
+<script src="https://kit.fontawesome.com/8367bf7b85.js" crossorigin="anonymous"></script>
+</html>
